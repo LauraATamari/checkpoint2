@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkpoint Microservices</title>
+    <style type="text/css">
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        section{
+            height: 450px;
+            width: 450px;
+            background-color: #fff;
+            position: absolute;
+            margin: auto;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.10),
+                0px 10px 20px rgba(0,0,0,0.05),
+                0px 20px 20px rgba(0,0,0,0.05),
+                0px 30px 20px rgba(0,0,0,0.05);
+            border-bottom: 2px solid #00cccc;
+        }
+        section>h1{
+            text-align: center;
+            margin: 40px 0 40px 0;
+        }
+        button{
+            width: 100%;
+            position: relative;
+            background: #00cccc;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 35px;
+            width: 250px;
+            color: #fff;
+            border-radius: 20px;
+            border: none;
+            margin: 10px;
+        }
+        form{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Bem vindo ao Checkpoint</h1>
+        <form action="/cadastro">
+            <button>Cadastrar produto</button>
+        </form>
+        <form action="/lista">
+            <button>Lista de produtos</button>
+        </form>
+    </section>
+</body>
+</html>

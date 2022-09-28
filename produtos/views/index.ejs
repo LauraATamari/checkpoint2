@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+	        font-family: sans-serif;
+	        font-weight: 100;
+        }
+        table{
+            border-collapse: collapse;
+            margin: 25px auto;
+            border: 1px solid #eee;
+            border-bottom: 2px solid #00cccc;
+            box-shadow: 0 0 20px rgba(0,0,0,0.10),
+                0px 10px 20px rgba(0,0,0,0.05),
+                0px 20px 20px rgba(0,0,0,0.05),
+                0px 30px 20px rgba(0,0,0,0.05);
+        }
+        td, th{
+            color: #999;
+            text-align: left;
+            padding: 12px 35px;
+        }
+        tbody>tr:nth-child(odd){
+            background: #eee;
+        }
+        tbody>tr:hover{
+            background: #ddd;
+        }
+        th{
+            color: #fff;
+            background: #00cccc;
+            text-transform: uppercase;
+        }
+        td{
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Active</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%productsList.forEach(product => {%>
+                    <tr>
+                        <td scope="row"><%=product._id%></td>
+                        <td scope="row"><%=product.title%></td>
+                        <td scope="row"><%=product.price%></td>
+                        <td scope="row"><%=product.description%></td>
+                        <td scope="row"><%=product.active%></td>
+                    </tr>
+                <%})%>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
