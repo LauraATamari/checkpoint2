@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const ejs = require('ejs');
+
 mongoose.connect('mongodb+srv://laurafiap:YS2X5wap7sD7yzP@cluster0.wlvu8ox.mongodb.net/xavier-corporation');
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -42,6 +43,39 @@ app.post("/cadastrar", function(req, res){
         description: req.body.description,
         active: req.body.active,
     })
+    const http = require('http');
+    const data = JSON.stringify({
+        title: req.body.title,
+        price: req.body.price,
+        description: req.body.description,
+        active: req.body.active,
+    });
+    const options = {
+        host: "localhost",
+        port: 3030,
+        proxy: "http://localhost:3030",
+        path: "/sending-email",
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Content-Lenght": data.length,
+        },
+    };
+    const request = http.request(options, (res)=>{
+        console.log("statusCode: ", res.statusCode);
+        let result = "";
+        res.on("data",(chunk)=>{
+            result += chunk;
+        });
+        res.on("end", ()=>{
+            console.log("Result is: " + result);
+        });
+    });
+    request.on("error", (err)=>{
+        console.log("Error: " + err.message);
+    });
+    request.write(data);
+    request.end()
     newProduct.save();
     res.redirect("/");
 })
