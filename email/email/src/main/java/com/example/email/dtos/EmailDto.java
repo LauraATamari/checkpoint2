@@ -8,15 +8,15 @@ import lombok.Data;
 @Data
 public class EmailDto {
     @NotBlank
-    private String ownerRef;
+    private String ownerRef = "Laura";
     @NotBlank
     @Email
-    private String emailFrom;
+    private String emailFrom = "lauraatamari@gmail.com";
     @NotBlank
     @Email
-    private String emailTo;
+    private String emailTo = "fiapteste.checkpoint@gmail.com";
     @NotBlank
-    private String subject;
+    private String subject = "Cadastro de produto";
     @NotBlank
-    private String text;
+    private String text = "Produto foi cadastrado com sucesso!";
 }

@@ -23,12 +23,12 @@ public class EmailModel implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long emailId;
-    private String ownerRef;
-    private String emailFrom;
-    private String emailTo;
-    private String subject;
+    private String ownerRef = "Laura";
+    private String emailFrom = "lauraatamari@gmail.com";
+    private String emailTo = "fiapteste.checkpoint@gmail.com";
+    private String subject = "Cadastro de produto";
     @Column(columnDefinition = "TEXT")
-    private String text;
+    private String text = "Produto cadastrado com sucesso!";
     private LocalDateTime sendDateEmail;
     private StatusEmail statusEmail;
 }

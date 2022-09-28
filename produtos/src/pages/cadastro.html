@@ -11,7 +11,7 @@
             font-family: 'Roboto', sans-serif;
         }
         section{
-            height: 550px;
+            height: 500px;
             width: 450px;
             background-color: #fff;
             position: absolute;
@@ -38,7 +38,6 @@
         .form-group>label{
             display: block;
             margin: 5px 0 10px 0;
-
         }
         .form-group>input,select{
             height: 30px;
@@ -66,13 +65,16 @@
             border-radius: 20px;
             border: none;
         }
+        .form-button{
+            margin: 0 20px 0 20px;
+        }
         
     </style>
 </head>
 <body>
     <section>
         <h1>Cadastre o produto</h1>
-        <form action="/cadastrar" method="post">
+        <form action="/cadastrar" method="post" id="form">
             <div class="form-group">
                 <label>Nome do produto</label>
                 <input type="text" placeholder="Nome do produto" name="title" id="title" required>
@@ -85,9 +87,11 @@
                 <label>Descricao</label>
                 <input style="height: 50px;" type="text" placeholder="Descricao" name="description" id="description" required>
             </div>
-            <div class="form-group">
+            <div class="form-button">
                 <label>Produto Disponivel</label>
                 <input type="radio" name="active" id="active" value="true">
+                <label>Produto Indisponivel</label>
+                <input type="radio" name="active" id="active" value="false">
             </div>
             <div class="button-group">
                 <button type="submit" onclick="function1()">Cadastrar</button>
@@ -97,6 +101,22 @@
     <script>
         function function1(){
             alert("Produto cadastrado com sucesso!");
+            const formData = new FormData(document.querySelector('form'))
+            fetch('http://localhost:3030/sending-email',{
+                method: "POST",
+                body: JSON.stringify({
+                    title: formData.get("title"),
+                    price: formData.get("price"),
+                    description: formData.get("description"),
+                    active: formData.get("active")
+                })
+            }).then(function (res){
+                return res.text();
+            }).then(function (text){
+                console.log("TEXTO:" + text)
+            }).catch(function (error){
+                console.log("ERROR:" + error)
+            })
         }
     </script>
 </body>
