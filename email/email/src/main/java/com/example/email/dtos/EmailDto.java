@@ -11,10 +11,10 @@ public class EmailDto {
     private String ownerRef = "Laura";
     @NotBlank
     @Email
-    private String emailFrom = "lauraatamari@gmail.com";
+    private String emailFrom = "fiapteste.checkpoint@gmail.com";
     @NotBlank
     @Email
-    private String emailTo = "fiapteste.checkpoint@gmail.com";
+    private String emailTo = "lauraatamari@gmail.com";
     @NotBlank
     private String subject = "Cadastro de produto";
     @NotBlank
